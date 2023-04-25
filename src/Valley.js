@@ -1,62 +1,50 @@
 import { useEffect, useState } from 'react';
-import { db, storage } from './config/firebase';
-import { getDocs, collection } from 'firebase/firestore';
-import { ref, getDownloadURL, listAll } from 'firebase/storage';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from './config/firebase';
 
 function Valley()
 {
-    const [plantsList, setPlantsList] = useState([]);
-    const plantsColectionRef = collection(db, "plants");
+      const [plantList, setPlantList] = useState([]);
 
-    const [imageList, setImageList] = useState([]);
-    const imageListRef = ref(storage, "images/");
+      useEffect(() => {
+        const getPlantList = async () => {
+          try {
+            const plantCollectionRef = collection(db, 'plants');
+            const q = query(plantCollectionRef, where('Location', '==', 'Valley'));
+            const querySnapshot = await getDocs(q);
+            const plants = querySnapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+            setPlantList(plants);
+            } catch (err) {
+            console.error(err);
+          }
+        };
   
-    useEffect(() => {
-        const getPlantsList = async () => {
-          try {
-          const data = await getDocs(plantsColectionRef);
-          const filteredData = data.docs.map((doc) => ({...doc.data(), id: doc.id,}));
-          setPlantsList(filteredData);
-          } catch (err) {
-            console.error(err);
-          }
-      };
-  
-      getPlantsList();
-    }, []);
+        getPlantList();
+      }, []);
 
-   useEffect(() => {
-     listAll(imageListRef).then((response) => {
-       response.items.forEach((item) => {
-         getDownloadURL(item).then((url) => {
-           setImageList((prev) => [...prev, url]);
-         });
-       });
-     });
-   }, []);
+  return (
 
-    return (
-      <div className="App">        
-        <div className="row mb-5" key = "{plant.Name" >
-          {plantsList.map((plant) => (
-          <div className="col-4">
-            <div className="card-body mt-3 p-3 rounded border shadow text-white" style={{backgroundColor: 'Green'}}  >
-            <h1 id={plant.Name}>{plant.Name}</h1>
-            <p><img src={plant.Picture} alt= {plant.Name} className="rounded shadow" style={{"maxWidth" : "70%", "maxHeight" : "50%" }}></img></p>
-
-            {/* {imageList.map((url) => {
-              return <img src={url} className="rounded shadow" style={{"maxWidth" : "70%", "maxHeight" : "50%" }}/>
-            })} */}
-
-            <p><h2>Authority: </h2><font size="4">{plant.Authority}</font></p>
-            <p><h3>Family: </h3><font size="4">{plant.Family}</font></p>
-            <p><h3>Description: </h3><font size="4">{plant.Narrative}</font></p> 
-            </div>      
-          </div>
-          ))}
-        </div>
-      </div>
-    );
+            <div className="App">
+    
+              {plantList.map((plant) => (
+    
+                <div className="card-body mt-3 p-3 rounded border shadow text-white" style={{backgroundColor: "green"}} key={plant.Name}>
+    
+                  <h1 id={plant.Name}>{plant.Name}</h1>    
+                  <div style={{display: 'flex', justifyContent: 'center'}}>
+    
+                    <img src={plant.Picture} alt={plant.Name} className="rounded shadow" style={{"maxWidth" : "100%", "maxHeight" : "40vw", "objectFit": "cover" }} />    
+                  </div>    
+                  <p><strong>Authority:</strong> {plant.Authority}</p>   
+                  <p><strong>Family:</strong> {plant.Family}</p>    
+                  <p><strong>Description:</strong> {plant.Narrative}</p>    
+                </div>    
+              ))}    
+            </div>
+          );
 }
 
 export default Valley;

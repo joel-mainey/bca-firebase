@@ -4,7 +4,6 @@ import Nursery from './Nursery';
 import Hilltop from './Hilltop';
 import Valley from './Valley';
 import Wetlands from './Wetlands';
-import { Auth } from "./components/auth";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
 function App() {
@@ -31,10 +30,7 @@ function Home()
     <h2>Welcome to the BCA Species List Home Page.</h2>
     <h4>Please use the above Menu to navigate our current biomes.<br></br>Blah Blah Blah!<br></br><br></br>
     <b><i>- The People</i></b></h4>
-    <br></br>
-    <h5>Sign in!</h5>
     </p>
-    <Auth />
     </div> 
   );
 }
