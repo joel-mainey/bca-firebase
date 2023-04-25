@@ -27,15 +27,11 @@ function Valley()
 
   return (
 
-            <div className="App">
-    
-              {plantList.map((plant) => (
-    
-                <div className="card-body mt-3 p-3 rounded border shadow text-white" style={{backgroundColor: "green"}} key={plant.Name}>
-    
+            <div className="App">    
+              {plantList.map((plant) => (   
+                <div className="card-body mt-3 p-3 rounded border shadow text-white" style={{backgroundColor: "green"}} key={plant.Name}>   
                   <h1 id={plant.Name}>{plant.Name}</h1>    
-                  <div style={{display: 'flex', justifyContent: 'center'}}>
-    
+                  <div style={{display: 'flex', justifyContent: 'center'}}> 
                     <img src={plant.Picture} alt={plant.Name} className="rounded shadow" style={{"maxWidth" : "100%", "maxHeight" : "40vw", "objectFit": "cover" }} />    
                   </div>    
                   <p><strong>Authority:</strong> {plant.Authority}</p>   
