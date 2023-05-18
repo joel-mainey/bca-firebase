@@ -1,0 +1,60 @@
+.navbar-nav {
+    font-size: 1.2rem;
+  }
+  
+  .nav-link {
+    padding: 0.5rem 0.5rem;
+    margin-right: 0.5rem;
+  }
+  
+  .container {
+    margin-top: 100px; /* add a top margin of 80px to create space */
+  }
+  
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 54px;
+    right: 54px;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.92);
+    padding: 1rem;
+}
+
+@media (min-width: 768px) {
+    .navbar {
+        left: 0px;
+        right: 0px;
+        padding: 1rem 2rem;
+    }
+
+}
+
+  /* .navbar {
+    position: fixed;
+    top: 0;
+    left: 54px;
+    right: 54px;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.92);
+    padding: 1rem;
+  } */
+  
+  .navbar-brand {
+    color: white;
+    font-size: 1.5rem;
+  }
+  
+  .nav-link {
+    color: white;
+  }
+  
+  .nav-link:hover {
+    color: #f8f9fa;
+  }
+
+  .data-item:first-child {
+    margin-top: 100px;
+  }
+  
+  
