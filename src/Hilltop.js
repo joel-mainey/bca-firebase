@@ -1,49 +1,49 @@
-// Importing needed webhooks.
-import {useEffect, useState} from 'react';
-import { useHref } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from './config/firebase'; 
 
+function Hilltop() {
 
-function Hilltop()
-{
-    //
-    //
-    //Add const variables here
-//     const [state, setState] = useState([])
+    const [plantList, setPlantList] = useState([]);
 
-//     function getData()
-//     {
-//     //API data from restDB
-//     var data = null;
+    useEffect(() => {
+      const getPlantList = async () => {
+        try {
+          const plantCollectionRef = collection(db, 'plants');
+          const q = query(plantCollectionRef, where('Location', '==', 'Hilltop'));
+          const querySnapshot = await getDocs(q);
+          const plants = querySnapshot.docs.map((doc) => ({
+            id: doc.id,
+            ...doc.data(),
+          }));
+          setPlantList(plants);
+          } catch (err) {
+          console.error(err);
+        }
+      };
 
-// var xhr = new XMLHttpRequest();
-// xhr.withCredentials = false;
+      getPlantList();
+    }, []);
 
-// xhr.addEventListener("readystatechange", function () {
-//   if (this.readyState === 4) {
-//     console.log(this.responseText);
-//   }
-// });
+ 
 
-// xhr.open("GET", "https://bcaspecieslist-bbda.restdb.io/rest/specieslist");
-// xhr.setRequestHeader("content-type", "application/json");
-// xhr.setRequestHeader("x-apikey", "49d7afd2dfe76921b78d77960e8828d02c273");
-// xhr.setRequestHeader("cache-control", "no-cache");
-
-// xhr.send(data);
-//     }
-
-//     //Using the useEffect webhook we can now tell the DOM to display the data
-//     //First parameter is a function to grab data, second is to update state variable with data.
-//     useEffect
-//     (
-//         ()=>{
-//             getData();
-//         }, [state]
-//     );
-
-
-
-    
+  return (
+      <div className="App">        
+        <div className="row mb-5" key = "{plant.Name" >
+          {plantList.map((plant) => (
+          <div className="col-4">
+            <div className="card-body mt-3 p-3 rounded border shadow text-white" style={{backgroundColor: 'Green'}}  >
+            <h1 id={plant.Name}>{plant.Name}</h1>
+            <p><img src={plant.Picture} alt= {plant.Name} className="rounded shadow" style={{"maxWidth" : "70%", "maxHeight" : "50%" }}></img></p>
+            <p><h2>Authority: </h2><font size="4">{plant.Authority}</font></p>
+            <p><h3>Family: </h3><font size="4">{plant.Family}</font></p>
+            <p><h3>Description: </h3><font size="4">{plant.Narrative}</font></p> 
+            </div>      
+          </div>
+          ))}
+        </div>
+      </div>
+    );
 }
 
-export default Hilltop();
+export default Hilltop;

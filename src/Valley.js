@@ -1,49 +1,46 @@
-// Importing needed webhooks.
-import {useEffect, useState} from 'react';
-import { useHref } from 'react-router-dom';
-
+import { useEffect, useState } from 'react';
+import { collection, query, where, getDocs } from 'firebase/firestore';
+import { db } from './config/firebase';
 
 function Valley()
 {
-    //
-    //
-    //Add const variables here
-//     const [state, setState] = useState([])
+      const [plantList, setPlantList] = useState([]);
 
-//     function getData()
-//     {
-//     //API data from restDB
-//     var data = null;
+      useEffect(() => {
+        const getPlantList = async () => {
+          try {
+            const plantCollectionRef = collection(db, 'plants');
+            const q = query(plantCollectionRef, where('Location', '==', 'Valley'));
+            const querySnapshot = await getDocs(q);
+            const plants = querySnapshot.docs.map((doc) => ({
+              id: doc.id,
+              ...doc.data(),
+            }));
+            setPlantList(plants);
+            } catch (err) {
+            console.error(err);
+          }
+        };
+  
+        getPlantList();
+      }, []);
 
-// var xhr = new XMLHttpRequest();
-// xhr.withCredentials = false;
+  return (
 
-// xhr.addEventListener("readystatechange", function () {
-//   if (this.readyState === 4) {
-//     console.log(this.responseText);
-//   }
-// });
-
-// xhr.open("GET", "https://bcaspecieslist-bbda.restdb.io/rest/specieslist");
-// xhr.setRequestHeader("content-type", "application/json");
-// xhr.setRequestHeader("x-apikey", "49d7afd2dfe76921b78d77960e8828d02c273");
-// xhr.setRequestHeader("cache-control", "no-cache");
-
-// xhr.send(data);
-//     }
-
-//     //Using the useEffect webhook we can now tell the DOM to display the data
-//     //First parameter is a function to grab data, second is to update state variable with data.
-//     useEffect
-//     (
-//         ()=>{
-//             getData();
-//         }, [state]
-//     );
-
-
-
-    
+            <div className="App">    
+              {plantList.map((plant) => (   
+                <div className="card-body mt-3 p-3 rounded border shadow text-white" style={{backgroundColor: "green"}} key={plant.Name}>   
+                  <h1 id={plant.Name}>{plant.Name}</h1>    
+                  <div style={{display: 'flex', justifyContent: 'center'}}> 
+                    <img src={plant.Picture} alt={plant.Name} className="rounded shadow" style={{"maxWidth" : "100%", "maxHeight" : "40vw", "objectFit": "cover" }} />    
+                  </div>    
+                  <p><strong>Authority:</strong> {plant.Authority}</p>   
+                  <p><strong>Family:</strong> {plant.Family}</p>    
+                  <p><strong>Description:</strong> {plant.Narrative}</p>    
+                </div>    
+              ))}    
+            </div>
+          );
 }
 
-export default Valley();
+export default Valley;
