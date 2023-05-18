@@ -39,7 +39,21 @@ function Valley()
 
 
     return (
+
+      
         <div className="App">
+
+<div className='row mt-3 p-3 rounded border shadow text-white' style={{backgroundColor: 'rgba(0,0,0,0.92)'}}>
+
+<p><h1 className="Display-1 text-white">Valley</h1>
+<br></br>
+<font size="4"><i>This area by the stream used to be grazed by goats and as result there was no understorey because the goats would eat any seedlings that grew here. Now, without the goats, the native ferns and shrubs are thriving under the protection of the canopy trees. The bamboo on the opposite side of the stream provides the shelter required to prevent the wind from drying things out. Shade is essential to a healthy waterway as it regulates the temperature and allows native freshwater species such as koura to thrive. In turn the stream nourishes the surrounding trees.</i><br></br><br></br>
+
+</font>
+</p>
+
+
+        </div>
           {plantList.map((plant) => (
             <div className="card-body mt-3 p-3 rounded border shadow text-white" style={{backgroundColor: "rgba(0,0,0,0.92)"}} key={plant.Name}>
               <h1 id={plant.Name}>{plant.Name}</h1>
