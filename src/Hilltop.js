@@ -5,12 +5,15 @@ import { useEffect, useState } from "react";
 import { Auth } from "./components/auth";
 import { db } from './config/firebase'
 import { collection, query, where, getDocs } from 'firebase/firestore'
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 function Hilltop()
 {
 
     const [plantList, setPlantList] = useState([]);
+    const location = useLocation();
 
 
 
@@ -48,6 +51,17 @@ function Hilltop()
         
     }, []);
         
+    useEffect(() => {
+      const hash = location.hash;
+      if (hash) {
+        const cardId = hash.substr(1);
+        const cardElement = document.getElementById(cardId);
+        if (cardElement) {
+          cardElement.scrollIntoView({ behavior: "smooth" });
+        }
+      }
+    }, [location.hash]);
+    
         
         
         
@@ -74,7 +88,10 @@ function Hilltop()
               <p><strong>Authority:</strong> {plant.Authority}</p>
               <p><strong>Family:</strong> {plant.Family}</p>
               <p><strong>Description:</strong> {plant.Narrative}</p>
+              <Link to={`/plant#${plant.id}`}>View Card</Link>
+
             </div>
+            
           ))}
         </div>
     );
