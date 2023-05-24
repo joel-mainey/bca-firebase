@@ -23,9 +23,9 @@ function Nav() {
         aria-expanded="false"
         aria-label="Toggle navigation"
         onClick={handleToggle}
-        color='White'
+        
       >
-        <span className="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon white-icon"></span>
       </button>
       <div className={`${isExpanded ? 'navbar-collapse' : 'collapse'} navbar-collapse`} id="navbarNav">
         <ul className="navbar-nav ml-auto">

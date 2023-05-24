@@ -1,3 +1,6 @@
+.white-icon{
+  color: white;
+}
 .navbar-nav {
     font-size: 1.2rem;
   }
@@ -52,7 +55,7 @@
     height: auto; /* Allow the container to expand vertically */
   }
   .navbar-toggler {
-    order: 2; /* Move the toggle button to the bottom */
+   
     margin-top: 1rem; /* Add some space between the button and the menu */
     margin-left: auto; /* Move the toggle button to the right */
   }
