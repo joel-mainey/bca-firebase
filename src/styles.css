@@ -48,23 +48,11 @@
     margin-top: 100px; /* add a top margin of 80px to create space */
     margin-bottom: 100px;
   }
-
-  .navbar.navbar-expand-lg {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start of the column */
-    height: auto; /* Allow the container to expand vertically */
-  }
-  .navbar-toggler {
-   
-    margin-top: 1rem; /* Add some space between the button and the menu */
-    margin-left: auto; /* Move the toggle button to the right */
-  }
-  .navbar-collapse {
-    order: 1; /* Move the menu to the top */
-    margin-top: 1rem; /* Add some space between the menu and the top */
+  
+  
   }
 
-}
+
 
   /* .navbar {
     position: fixed;
