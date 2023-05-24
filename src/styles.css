@@ -30,6 +30,24 @@
 
 }
 
+@media (min-width: 436px) {
+  .navbar {
+      left: 0px;
+      right: 0px;
+      padding: 1rem 2rem;
+  }
+
+  .navbar-nav {
+    font-size: 0.8rem;
+  }
+
+  .container {
+    margin-top: 100px; /* add a top margin of 80px to create space */
+    margin-bottom: 100px;
+  }
+
+}
+
   /* .navbar {
     position: fixed;
     top: 0;
