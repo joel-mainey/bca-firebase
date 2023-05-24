@@ -30,7 +30,7 @@
 
 }
 
-@media (min-width: 436px) {
+@media (max-width: 436px) {
   .navbar {
       left: 0px;
       right: 0px;
