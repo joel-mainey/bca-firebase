@@ -23,6 +23,7 @@ function Nav() {
         aria-expanded="false"
         aria-label="Toggle navigation"
         onClick={handleToggle}
+        color='White'
       >
         <span className="navbar-toggler-icon"></span>
       </button>
