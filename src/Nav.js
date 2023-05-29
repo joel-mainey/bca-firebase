@@ -12,7 +12,7 @@ function Nav() {
   return (
     <nav className="navbar navbar-expand-lg p-3 rounded border fixed-top" style={{ backgroundColor: 'rgba(0,0,0,0.92)'  }}>
       <Link to="/" className="navbar-brand text-white">
-        <img src="/images/bcalogo.png" alt="Logo" style={{ maxWidth: '45px', height: 'auto' }}></img> BCA Biodiversity
+        <img src="/images/tiwaiwakaLogoWhite.png" alt="Logo" style={{ maxWidth: '45px', height: 'auto' }}></img> Tiwaiwaka
       </Link>
       <button
         className="navbar-toggler"
