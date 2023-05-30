@@ -81,4 +81,13 @@
     margin-top: 100px;
   }
   
+  .navbar-hidden {
+    transform: translateY(-100%);
+    transition: transform 0.3s;
+  }
+  
+  .centered-text {
+    text-align: center;
+  }
+  
   

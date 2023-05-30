@@ -88,7 +88,7 @@ function Hilltop()
               <p><strong>Authority:</strong> {plant.Authority}</p>
               <p><strong>Family:</strong> {plant.Family}</p>
               <p><strong>Description:</strong> {plant.Narrative}</p>
-              <Link to={`/plant#${plant.id}`}>View Card</Link>
+              
 
             </div>
             

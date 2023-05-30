@@ -1,16 +1,45 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './styles.css';
 
 function Nav() {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isNavbarHidden, setIsNavbarHidden] = useState(false);
+  let lastScrollPosition = 0; // Declare and initialize lastScrollPosition
 
   const handleToggle = () => {
     setIsExpanded(!isExpanded);
   };
 
+  useEffect(() => {
+    // Add scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Clean up the event listener when the component is unmounted
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  });
+
+  const handleScroll = () => {
+    // Get the current scroll position
+    const currentScrollPosition = window.pageYOffset;
+
+    // Check the scroll direction and update the navbar visibility
+    if (currentScrollPosition > 100 && currentScrollPosition > lastScrollPosition) {
+      setIsNavbarHidden(true);
+    } else {
+      setIsNavbarHidden(false);
+    }
+
+    // Update the last scroll position
+    lastScrollPosition = currentScrollPosition;
+  };
+
+  
+
   return (
-    <nav className="navbar navbar-expand-lg p-3 rounded border fixed-top" style={{ backgroundColor: 'rgba(0,0,0,0.92)'  }}>
+    <nav className={`navbar navbar-expand-lg p-3 rounded border fixed-top ${isNavbarHidden ? 'navbar-hidden' : ''}`} style={{ backgroundColor: 'rgba(0,0,0,0.92)' }}>
       <Link to="/" className="navbar-brand text-white">
         <img src="/images/tiwaiwakaLogoWhite.png" alt="Logo" style={{ maxWidth: '45px', height: 'auto' }}></img> Tiwaiwaka
       </Link>
@@ -29,11 +58,6 @@ function Nav() {
       </button>
       <div className={`${isExpanded ? 'navbar-collapse' : 'collapse'} navbar-collapse`} id="navbarNav">
         <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <Link to="/" className="nav-link text-white" onClick={() => setIsExpanded(false)}>
-              <h3>Home</h3>
-            </Link>
-          </li>
           <li className="nav-item">
             <Link to="/About" className="nav-link text-white" onClick={() => setIsExpanded(false)}>
               <h3>About</h3>
