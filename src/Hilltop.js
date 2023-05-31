@@ -52,15 +52,17 @@ function Hilltop()
     }, []);
         
     useEffect(() => {
-      const hash = location.hash;
-      if (hash) {
-        const cardId = hash.substr(1);
-        const cardElement = document.getElementById(cardId);
-        if (cardElement) {
-          cardElement.scrollIntoView({ behavior: "smooth" });
-        }
-      }
-    }, [location.hash]);
+  const hash = location.hash;
+  if (hash) {
+    const cardId = hash.substr(1);
+    const cardElement = document.getElementById(cardId);
+    if (cardElement) {
+      setTimeout(() => {
+        cardElement.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  }
+}, [location.hash]);
     
         
         
