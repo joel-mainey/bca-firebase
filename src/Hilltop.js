@@ -59,7 +59,7 @@ function Hilltop()
     if (cardElement) {
       setTimeout(() => {
         cardElement.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+      }, 1000);
     }
   }
 }, [location.hash]);
