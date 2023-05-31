@@ -1,7 +1,7 @@
 // Importing needed webhooks.
 // import {useEffect, useState} from 'react';
 // import { useHref } from 'react-router-dom';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { Auth } from "./components/auth";
 import { db } from './config/firebase'
 import { collection, query, where, getDocs } from 'firebase/firestore'
@@ -51,18 +51,32 @@ function Hilltop()
         
     }, []);
         
-    useEffect(() => {
-  const hash = location.hash;
-  if (hash) {
-    const cardId = hash.substr(1);
-    const cardElement = document.getElementById(cardId);
-    if (cardElement) {
-      setTimeout(() => {
-        cardElement.scrollIntoView({ behavior: "smooth" });
-      }, 1000);
+    useLayoutEffect(() => {
+      const hash = location.hash;
+    if (hash) {
+      const cardId = hash.substr(1);
+      const cardElement = document.getElementById(cardId);
+      if (cardElement) {
+        setTimeout(() => {
+          cardElement.scrollIntoView({ behavior: "smooth" });
+        }, 0);
+      }
+    } else {
+      // If no hash is present, scroll to the top of the page
+      window.scrollTo({ top: 0 });
     }
-  }
-}, [location.hash]);
+  }, [location]);
+//   const hash = location.hash;
+//   if (hash) {
+//     const cardId = hash.substr(1);
+//     const cardElement = document.getElementById(cardId);
+//     if (cardElement) {
+//       setTimeout(() => {
+//         cardElement.scrollIntoView({ behavior: "smooth" });
+//       }, 1000);
+//     }
+//   }
+// }, [location.hash]);
     
         
         
