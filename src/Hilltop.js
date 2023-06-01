@@ -34,15 +34,23 @@ function Hilltop() {
       const hash = location.hash;
       if (hash && isDataLoaded) {
         const cardId = hash.substring(1);
-        const cardElement = document.getElementById(cardId);
-        console.log("cardId:", cardId);
-        console.log("cardElement:", cardElement);
-        if (cardElement) {
-          console.log("Scrolling...");
-          setTimeout(() => {
+        let attempts = 0;
+        const checkCardElement = setInterval(() => {
+          const cardElement = document.getElementById(cardId);
+          console.log("Attempt:", attempts);
+          console.log("CardId:", cardId);
+          console.log("CardElement:", cardElement);
+          if (cardElement) {
+            console.log("Scrolling...");
             cardElement.scrollIntoView({ behavior: "smooth" });
-          }, 2000); // Adjust the delay as needed
-        }
+            clearInterval(checkCardElement);
+          }
+          attempts++;
+          if (attempts > 10) {
+            console.log("Card element not found");
+            clearInterval(checkCardElement);
+          }
+        }, 500);
       }
     };
 
