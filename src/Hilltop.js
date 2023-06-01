@@ -38,7 +38,7 @@ function Hilltop() {
       if (cardElement) {
         setTimeout(() => {
           cardElement.scrollIntoView({ behavior: "smooth" });
-        }, 0);
+        }, 2000); // Delay scrolling by 2 seconds to ensure data is loaded
       }
     } else {
       window.scrollTo({ top: 0 });
@@ -94,6 +94,7 @@ function Hilltop() {
 }
 
 export default Hilltop;
+
 
 //
 //
