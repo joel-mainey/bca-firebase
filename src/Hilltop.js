@@ -1,9 +1,8 @@
-import { useEffect, useState, useLayoutEffect } from "react";
+import { useEffect, useState } from "react";
 import { Auth } from "./components/auth";
 import { db } from './config/firebase'
 import { collection, query, where, getDocs } from 'firebase/firestore'
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Hilltop() {
   const [plantList, setPlantList] = useState([]);
@@ -30,16 +29,16 @@ function Hilltop() {
     getPlantList();
   }, []);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const hash = location.hash;
     if (hash && isDataLoaded) {
-      const cardId = hash.substr(1);
-      const cardElement = document.getElementById(cardId);
-      if (cardElement) {
-        setTimeout(() => {
+      setTimeout(() => {
+        const cardId = hash.substr(1);
+        const cardElement = document.getElementById(cardId);
+        if (cardElement) {
           cardElement.scrollIntoView({ behavior: "smooth" });
-        }, 2000); // Delay scrolling by 2 seconds to ensure data is loaded
-      }
+        }
+      }, 2000); // Adjust the delay as needed
     } else {
       window.scrollTo({ top: 0 });
     }
