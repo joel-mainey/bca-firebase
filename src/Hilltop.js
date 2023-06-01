@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { Auth } from "./components/auth";
 import { db } from './config/firebase'
 import { collection, query, where, getDocs } from 'firebase/firestore'
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Hilltop() {
   const [plantList, setPlantList] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const getPlantList = async () => {
@@ -29,19 +30,22 @@ function Hilltop() {
   }, []);
 
   useEffect(() => {
-    const hash = window.location.hash;
-    if (hash && isDataLoaded) {
-      setTimeout(() => {
-        const cardId = hash.substr(1);
+    const scrollToCard = () => {
+      const hash = location.hash;
+      if (hash) {
+        const cardId = hash.substring(1);
+        console.log('Card ID:', cardId);
         const cardElement = document.getElementById(cardId);
+        console.log('Card Element:', cardElement);
         if (cardElement) {
+          console.log('Scrolling...');
           cardElement.scrollIntoView({ behavior: "smooth" });
         }
-      }, 2000); // Adjust the delay as needed
-    } else {
-      window.scrollTo({ top: 0 });
-    }
-  }, [isDataLoaded]);
+      }
+    };
+
+    scrollToCard();
+  }, [location]);
 
   return (
     <div className="App">
