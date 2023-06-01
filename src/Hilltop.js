@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { Auth } from "./components/auth";
 import { db } from './config/firebase'
 import { collection, query, where, getDocs } from 'firebase/firestore'
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Hilltop() {
   const [plantList, setPlantList] = useState([]);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
-  const location = useLocation();
 
   useEffect(() => {
     const getPlantList = async () => {
@@ -30,7 +29,7 @@ function Hilltop() {
   }, []);
 
   useEffect(() => {
-    const hash = location.hash;
+    const hash = window.location.hash;
     if (hash && isDataLoaded) {
       setTimeout(() => {
         const cardId = hash.substr(1);
@@ -42,7 +41,7 @@ function Hilltop() {
     } else {
       window.scrollTo({ top: 0 });
     }
-  }, [location, isDataLoaded]);
+  }, [isDataLoaded]);
 
   return (
     <div className="App">
