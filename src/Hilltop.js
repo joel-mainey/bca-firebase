@@ -39,7 +39,9 @@ function Hilltop() {
         console.log("cardElement:", cardElement);
         if (cardElement) {
           console.log("Scrolling...");
-          cardElement.scrollIntoView({ behavior: "smooth" });
+          setTimeout(() => {
+            cardElement.scrollIntoView({ behavior: "smooth" });
+          }, 500); // Adjust the delay as needed
         }
       }
     };
