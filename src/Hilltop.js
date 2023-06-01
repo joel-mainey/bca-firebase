@@ -84,7 +84,7 @@ function Hilltop() {
         <div
           className="card-body mt-3 p-3 rounded border shadow text-white"
           style={{ backgroundColor: "rgba(0,0,0,0.92)" }}
-          id={plant.id}
+          id={plant.Name.replace(/\s/g, "")} // Remove spaces from plant name to create the card ID
           key={plant.Name}
         >
           <h1>{plant.Name}</h1>
