@@ -32,20 +32,20 @@ function Hilltop() {
   useEffect(() => {
     const scrollToCard = () => {
       const hash = location.hash;
-      if (hash) {
-        const cardId = hash.substring(1);
-        console.log('Card ID:', cardId);
+      if (hash && isDataLoaded) {
+        const cardId = hash.substr(1);
         const cardElement = document.getElementById(cardId);
-        console.log('Card Element:', cardElement);
+        console.log("cardId:", cardId);
+        console.log("cardElement:", cardElement);
         if (cardElement) {
-          console.log('Scrolling...');
+          console.log("Scrolling...");
           cardElement.scrollIntoView({ behavior: "smooth" });
         }
       }
     };
 
     scrollToCard();
-  }, [location]);
+  }, [location, isDataLoaded]);
 
   return (
     <div className="App">
