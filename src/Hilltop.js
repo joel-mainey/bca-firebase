@@ -33,7 +33,7 @@ function Hilltop() {
     const scrollToCard = () => {
       const hash = location.hash;
       if (hash && isDataLoaded) {
-        const cardId = hash.substr(1);
+        const cardId = hash.substring(1);
         const cardElement = document.getElementById(cardId);
         console.log("cardId:", cardId);
         console.log("cardElement:", cardElement);
@@ -74,8 +74,8 @@ function Hilltop() {
         <div
           className="card-body mt-3 p-3 rounded border shadow text-white"
           style={{ backgroundColor: "rgba(0,0,0,0.92)" }}
-          id={plant.id}
-          key={plant.id}
+          id={plant.Name}
+          key={plant.Name}
         >
           <h1>{plant.Name}</h1>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
