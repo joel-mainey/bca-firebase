@@ -54,7 +54,7 @@ function Nav() {
         onClick={handleToggle}
         
       >
-        <span className="navbar-toggler-icon white-icon"></span>
+        <span className="navbar-toggler-icon"></span>
       </button>
       <div className={`${isExpanded ? 'navbar-collapse' : 'collapse'} navbar-collapse`} id="navbarNav">
         <ul className="navbar-nav ml-auto">
