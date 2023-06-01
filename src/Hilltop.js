@@ -71,11 +71,22 @@ function Hilltop() {
       {plantList.map((plant) => (
         <div
           className="card-body mt-3 p-3 rounded border shadow text-white"
-          style={{ backgroundColor: "rgba(0,0,0,0)" }}
+          style={{ backgroundColor: "rgba(0,0,0,0.92)" }}
           id={plant.id}
           key={plant.id}
         >
-          {/* Render plant details */}
+          <h1>{plant.Name}</h1>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <img
+              src={plant.Picture}
+              alt={plant.Name}
+              className="rounded shadow"
+              style={{ "maxWidth": "100%", "maxHeight": "40vw", "objectFit": "cover" }}
+            />
+          </div>
+          <p><strong>Authority:</strong> {plant.Authority}</p>
+          <p><strong>Family:</strong> {plant.Family}</p>
+          <p><strong>Description:</strong> {plant.Narrative}</p>
         </div>
       ))}
     </div>
