@@ -60,7 +60,7 @@ function Valley() {
 
     return (
       <div className="App">
-      <div className='row mt-3 p-3 rounded border shadow text-white' style={{backgroundColor: 'rgba(0,0,0,0.92)'}}>
+      <div className='card-body mt-3 p-3 rounded border shadow text-white' style={{backgroundColor: 'rgba(0,0,0,0.92)'}}>
       <p><h1 className="Display-1 text-white">Valley</h1>
       <br></br>
       <font size="4"><i>This area by the stream used to be grazed by goats and as result there was no understorey because the goats would eat any seedlings that grew here. Now, without the goats, the native ferns and shrubs are thriving under the protection of the canopy trees. The bamboo on the opposite side of the stream provides the shelter required to prevent the wind from drying things out. Shade is essential to a healthy waterway as it regulates the temperature and allows native freshwater species such as koura to thrive. In turn the stream nourishes the surrounding trees.</i><br></br><br></br>
@@ -76,17 +76,17 @@ function Valley() {
           key={plant.Name}
         >
           <h1>{plant.Name}</h1>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'inline-flex', justifyContent: 'left'}}>
             <img
               src={plant.Picture}
               alt={plant.Name}
               className="rounded shadow"
-              style={{ "maxWidth": "100%", "maxHeight": "40vw", "objectFit": "cover" }}
+              style={{ "maxWidth": "50%", "maxHeight": "", "objectFit": "cover", "paddingRight": '20px', "paddingTop": '5px' }}
             />
-          </div>
-          <p><strong>Authority:</strong> {plant.Authority}</p>
-          <p><strong>Family:</strong> {plant.Family}</p>
           <p><strong>Description:</strong> {plant.Narrative}</p>
+          </div>
+          <p style={{"paddingTop": '10px',}}><strong>Authority:</strong> {plant.Authority}</p> 
+          <p><strong>Family:</strong> {plant.Family}</p>
         </div>
       ))}
     </div>

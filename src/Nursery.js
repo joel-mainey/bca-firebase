@@ -59,7 +59,7 @@ function Nursery() {
         
     return (
         <div className="App">
-            <div className='row mt-3 p-3 rounded border shadow text-white' style={{backgroundColor: 'rgba(0,0,0,0.92)'}}>
+            <div className='card-body mt-3 p-3 rounded border shadow text-white' style={{backgroundColor: 'rgba(0,0,0,0.92)'}}>
             <p><h1 className="Display-1 text-white">Nursery</h1>
             <br></br>
             <font size="4"><i>Aotearoa/NZ evolved isolated from the rest of the world and as a result the vast majority of our native species exist nowhere else in the world. Some 84% of our plants are unique and grow nowhere else on earth. They have adapted over millennia to thrive and occupy most parts of the landscape from the driest of sand dunes, through temperate forest, and all the way to the alpine regions where they can survive being buried in snow.<br></br><br></br> 
@@ -77,17 +77,17 @@ function Nursery() {
           key={plant.Name}
         >
           <h1>{plant.Name}</h1>
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div style={{ display: 'inline-flex', justifyContent: 'left'}}>
             <img
               src={plant.Picture}
               alt={plant.Name}
               className="rounded shadow"
-              style={{ "maxWidth": "100%", "maxHeight": "40vw", "objectFit": "cover" }}
+              style={{ "maxWidth": "50%", "maxHeight": "", "objectFit": "cover", "paddingRight": '20px', "paddingTop": '5px' }}
             />
-          </div>
-          <p><strong>Authority:</strong> {plant.Authority}</p>
-          <p><strong>Family:</strong> {plant.Family}</p>
           <p><strong>Description:</strong> {plant.Narrative}</p>
+          </div>
+          <p style={{"paddingTop": '10px',}}><strong>Authority:</strong> {plant.Authority}</p> 
+          <p><strong>Family:</strong> {plant.Family}</p>
         </div>
       ))}
     </div>
