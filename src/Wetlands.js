@@ -76,16 +76,16 @@ function Wetlands() {
           key={plant.Name}
         >
           <h1>{plant.Name}</h1>
-          <div style={{ display: 'inline-flex', justifyContent: 'left'}}>
+          <div style={{ display: 'flex', justifyContent: 'center'}}>
             <img
               src={plant.Picture}
               alt={plant.Name}
               className="rounded shadow"
-              style={{ "maxWidth": "50%", "maxHeight": "", "objectFit": "cover", "paddingRight": '20px', "paddingTop": '5px' }}
+              style={{ "maxWidth": "50%", "maxHeight": "30vw", "objectFit": "cover", "paddingBottom": '10px'}}
             />
-          <p><strong>Description:</strong> {plant.Narrative}</p>
           </div>
-          <p style={{"paddingTop": '10px',}}><strong>Authority:</strong> {plant.Authority}</p> 
+          <p><strong>Description:</strong> {plant.Narrative}</p>
+          <p><strong>Authority:</strong> {plant.Authority}</p> 
           <p><strong>Family:</strong> {plant.Family}</p>
         </div>
       ))}
