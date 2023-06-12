@@ -81,7 +81,7 @@ function Wetlands() {
               src={plant.Picture}
               alt={plant.Name}
               className="rounded shadow"
-              style={{ "maxWidth": "50%", "maxHeight": "30vw", "objectFit": "cover", "paddingBottom": '10px'}}
+              style={{ "maxWidth": "80%", "maxHeight": "50vw", "objectFit": "cover", "paddingBottom": '10px'}}
             />
           </div>
           <p><strong>Description:</strong> {plant.Narrative}</p>
