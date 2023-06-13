@@ -62,7 +62,7 @@ function Wetlands() {
         <div className='card-body mt-3 p-3 rounded border shadow text-white' style={{backgroundColor: 'rgba(0,0,0,0.92)'}}>
         <p><h1 className="Display-1 text-white">Wetlands</h1>
         <br></br>
-        <font size="4"><i>Within this wetland, you will see a range of plants that prefer to grow in wetter areas. Along with rushes, harakeke, sedges and mingimingi, the kahikatea also prefers wet feet. These kahikatea were planted in ?? amongst a nurse crop of mānuka. As a nurse crop, the manuka provided essential shelter for the kahikatea in the all important early years. Eventually, the kahikatea outgrew the manuka. This approach is common in restoration plantings, whereas nurse crops are planted to support the growth of the "forever" trees.</i><br></br><br></br>
+        <font size="4"><i>Within this wetland, you will see a range of plants that prefer to grow in wetter areas. Along with rushes, harakeke, sedges and mingimingi, the kahikatea also prefers wet feet. These kahikatea were planted in 2003 amongst a nurse crop of mānuka. As a nurse crop, the manuka provided essential shelter for the kahikatea in the all important early years. Eventually, the kahikatea outgrew the manuka. This approach is common in restoration plantings, whereas nurse crops are planted to support the growth of the "forever" trees.</i><br></br><br></br>
         </font>
         </p>
         </div>

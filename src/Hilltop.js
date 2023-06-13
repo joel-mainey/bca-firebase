@@ -65,7 +65,7 @@ function Hilltop() {
           <br></br>
           <font size="4">
             <i>
-              The kauri on this hillside were planted in ????. As with the kahikatea in the wetland, these kauri were
+              The kauri on this hillside were planted in 2003. As with the kahikatea in the wetland, these kauri were
               planted amongst a nurse crop, only this time kanuka was used as opposed to manuka. As you can see, they
               have grown so much in such a short space of time. Kauri need light to grow, and in the early years grow
               quickly in order for the crowns to reach above the canopy. The kanuka is slowly dying off leaving a canopy
