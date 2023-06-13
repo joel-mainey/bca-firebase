@@ -6,8 +6,8 @@ function About()
         <p><h1 className="Display-1 text-white">About</h1>
             <br></br>
             <br></br>
-            <font size="4"><b><i>Big spiel about plants and other forms and facets of flora and fauna and blah blah testing testing 1 2 buckle my shoe</i></b><br></br><br></br>
-            <i><b>- The Administrator</b></i>
+            <font size="4"><b><i>"About" blurb and respective media to go here.</i></b><br></br><br></br>
+            
             </font>
             </p>
         </div>
