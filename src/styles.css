@@ -105,3 +105,29 @@
     font-weight: 500;
 
    }
+
+   .portrait {
+      /* Set a maximum width for the image */
+      max-width: 500px;
+
+      /* Ensure the image retains its aspect ratio */
+      height: auto;
+  
+      /* Add rounded corners to the image */
+      border-radius: 10px;
+  
+      /* Center the image within its container */
+      display: block;
+      margin: 0 auto;
+   }
+
+   .portrait-container {
+    text-align: center; /* Center the content */
+    margin-top: 20px;   /* Add some space between the caption and the content */
+}
+
+figcaption {
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;   /* Add some space between the image and the caption */
+}
