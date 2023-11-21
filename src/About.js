@@ -8,7 +8,7 @@ function About()
         <h1 className="Display-1 text-white">About Us - Mr Rob McGowan & Tiwaiwaka</h1>
 
             <figure className="portrait-container">
-                <img className="portrait" src="images/RobMcGowan.jpg" alt="Mr Rob McGowan"/>
+                <img className="p-0 rounded border shadow container" style={{ maxWidth: '75%', maxHeight: '75%', objectFit: 'cover' }} src="images/RobMcGowan.jpg" alt="Mr Rob McGowan"/>
                 <figcaption>
                     Mr Rob Mcgowan <br></br><br></br>
                     <i>“It’s guiding principles represent a different set of priorities to how the world operates today. 
@@ -43,7 +43,7 @@ function About()
         <h1 className="Display-1 text-white">Why is Tiwaiwaka Important?</h1>
 
             <figure className="portrait-container">
-            <img className="portrait" src="images/RobsHouse.png" alt="Mr Rob McGowan"/>
+            <img className="p-0 rounded border shadow container" style={{ maxWidth: '75%', maxHeight: '75%', objectFit: 'cover' }} src="images/RobsHouse.png" alt="Tiwaiwaka Site"/>
             <figcaption>Rob's Home // Tiwaiwaka Site</figcaption>
             </figure>
          
