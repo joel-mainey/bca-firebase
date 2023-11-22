@@ -32,7 +32,7 @@ function Home() {
     <div class="container" >
       
     <div className='card-body p-3 rounded border shadow text-white' style={{backgroundColor: 'rgba(0,0,0,0.92)'}}>
-      <h1 className='centered-text'>Welcome to the home of the Tiwaiwaka species list.</h1>
+      <h1 className='centered-text'>Welcome to the Tiwaiwaka plant collection.</h1>
       <img src="/images/Tiwaiwaka3.jpg" alt="Tiwaiwaka" className="p-0 rounded border shadow container" style={{ maxWidth: 'auto', maxHeight: 'auto', objectFit: 'cover' }}/>
       <br></br><br></br>
       <font size="4"><p>Please use the above Menu to navigate to plants that exist within our current biomes. The biomes are split into the above four sections, although this can be broken down in to many
